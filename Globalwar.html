@@ -1,0 +1,2043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no" />
+<meta name="theme-color" content="#0a0612">
+<!-- Primary SEO -->
+<title>🌍 Global Button War - Worldwide Clicking Battle Game</title>
+<meta name="title" content="Global Button War - Worldwide Clicking Battle Game">
+<meta name="description" content="Join Global Button War, the ultimate worldwide click battle game where countries compete for the #1 spot. Press the giant button once every day, increase your country's ranking, unlock achievements, and dominate the world leaderboard.">
+<meta name="keywords" content="global button war, button game, click game, online click game, world ranking game, country leaderboard game, multiplayer browser game, viral web game, daily challenge game, worldwide competition game, global leaderboard, country battle game, press the button game, click challenge, browser multiplayer game, online leaderboard game, country click battle, internet game, free web game, real time multiplayer game">
+<meta name="author" content="Rakeshid03">
+<meta name="robots" content="index, follow">
+<meta name="language" content="English">
+<meta name="revisit-after" content="1 days">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Global Button War - Worldwide Clicking Battle">
+<meta property="og:description" content="Press the giant global button and help your country reach #1 in the world rankings. One click per day. Millions of players. One winner.">
+<meta property="og:url" content="https://rakeshid03.github.io/globalbuttonwar/">
+<meta property="og:site_name" content="Global Button War">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="🌍 Global Button War - Worldwide Clicking Battle">
+<meta name="twitter:description" content="Compete with players worldwide and help your country become the global champion in this massive online button pressing war.">
+
+<!-- Mobile & Theme -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Global Button War">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://rakeshid03.github.io/globalbuttonwar/">
+
+<!-- Geo SEO -->
+<meta name="geo.region" content="Worldwide">
+<meta name="geo.placename" content="Global">
+<meta name="distribution" content="global">
+
+<!-- Additional SEO -->
+<meta name="rating" content="general">
+<meta name="coverage" content="Worldwide">
+<meta name="target" content="all">
+<meta name="audience" content="all">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+
+<!-- Gun.js with Fallback -->
+<script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
+<script>
+  if (typeof Gun === 'undefined') {
+    document.write('<script src="https://unpkg.com/gun/gun.js"><\/script>');
+  }
+</script>
+
+<style>
+:root{
+  --bg-0:#070510;
+  --bg-1:#0f0a1c;
+  --bg-2:#1a0e22;
+  --surface:rgba(255,255,255,0.04);
+  --surface-2:rgba(255,255,255,0.07);
+  --border:rgba(255,255,255,0.08);
+  --border-strong:rgba(255,255,255,0.16);
+  --text:#f5f0ff;
+  --text-dim:#a8a3b8;
+  --text-mute:#6b6580;
+  --primary:#ff2d3f;
+  --primary-glow:#ff4d5f;
+  --primary-dark:#c8122a;
+  --accent:#00e5ff;
+  --accent-2:#00ff88;
+  --gold:#ffd54a;
+  --silver:#cfd8e3;
+  --bronze:#e0a06b;
+  --danger:#ff3b6f;
+  --shadow-lg:0 30px 60px -20px rgba(0,0,0,0.7);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{overflow-x:hidden}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg-0);
+  color:var(--text);
+  min-height:100vh;
+  position:relative;
+}
+
+/* ===== BACKGROUND EFFECTS ===== */
+.bg-effects{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.grid-pattern{
+  position:absolute;inset:-2px;
+  background-image:
+    linear-gradient(rgba(255,45,63,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,45,63,0.04) 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:radial-gradient(ellipse at center,black 30%,transparent 75%);
+  -webkit-mask-image:radial-gradient(ellipse at center,black 30%,transparent 75%);
+}
+.glow-orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.5;animation:orbFloat 20s ease-in-out infinite}
+.glow-orb-1{width:500px;height:500px;background:radial-gradient(circle,rgba(255,45,63,0.4),transparent 70%);top:-100px;left:-100px}
+.glow-orb-2{width:600px;height:600px;background:radial-gradient(circle,rgba(0,229,255,0.18),transparent 70%);bottom:-200px;right:-150px;animation-delay:-7s}
+.glow-orb-3{width:400px;height:400px;background:radial-gradient(circle,rgba(255,45,63,0.2),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);animation-delay:-14s}
+@keyframes orbFloat{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(30px,-40px) scale(1.1)}
+  66%{transform:translate(-30px,30px) scale(0.95)}
+}
+
+/* ===== HEADER ===== */
+.header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(10,6,18,0.72);
+  backdrop-filter:blur(20px) saturate(180%);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  border-bottom:1px solid var(--border);
+  padding:10px 18px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.header-left{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
+.title{
+  font-family:'Poppins',sans-serif;
+  font-weight:800;
+  font-size:clamp(15px,3.5vw,20px);
+  letter-spacing:0.3px;
+  background:linear-gradient(90deg,#fff 0%,#ffb8c0 50%,#ff8a96 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  line-height:1.1;
+}
+.last-visitor{
+  display:flex;align-items:center;gap:6px;
+  font-size:12px;color:var(--text-dim);
+  font-family:'Inter',sans-serif;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.last-visitor .material-symbols-rounded{font-size:14px;color:var(--primary-glow)}
+.last-visitor-flag{font-size:14px}
+.last-visitor.fade-in{animation:fadeSlide 0.6s ease}
+@keyframes fadeSlide{
+  from{opacity:0;transform:translateY(8px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.header-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.conn-status{
+  display:flex;align-items:center;gap:6px;
+  font-size:11px;color:var(--text-dim);
+  padding:5px 10px;border-radius:20px;
+  background:var(--surface);border:1px solid var(--border);
+}
+.conn-status .dot{width:7px;height:7px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 8px var(--accent-2);animation:pulseDot 2s ease infinite}
+.conn-status.connecting .dot{background:#ffb800;box-shadow:0 0 8px #ffb800}
+@keyframes pulseDot{0%,100%{opacity:1}50%{opacity:0.4}}
+.icon-btn{
+  width:36px;height:36px;border-radius:50%;
+  background:var(--surface);border:1px solid var(--border);
+  color:var(--text);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s;
+}
+.icon-btn:hover{background:var(--surface-2);border-color:var(--border-strong);transform:scale(1.05)}
+.icon-btn:active{transform:scale(0.95)}
+.icon-btn .material-symbols-rounded{font-size:20px}
+
+/* ===== MAIN ===== */
+main{
+  padding:78px 14px 40px;
+  max-width:1400px;margin:0 auto;
+  display:flex;flex-direction:column;gap:18px;
+}
+
+/* ===== STATS BAR ===== */
+.stats-bar{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+}
+.stat-card{
+  background:linear-gradient(135deg,var(--surface) 0%,rgba(255,45,63,0.03) 100%);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:12px 14px;
+  display:flex;align-items:center;gap:10px;
+  position:relative;overflow:hidden;
+  transition:transform 0.3s,border-color 0.3s;
+}
+.stat-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,transparent 50%,rgba(255,255,255,0.04) 100%);
+  pointer-events:none;
+}
+.stat-card:hover{transform:translateY(-2px);border-color:var(--border-strong)}
+.stat-icon{
+  width:32px;height:32px;border-radius:9px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,rgba(255,45,63,0.2),rgba(255,45,63,0.05));
+  color:var(--primary-glow);flex-shrink:0;
+}
+.stat-icon .material-symbols-rounded{font-size:18px}
+.stat-card.accent .stat-icon{background:linear-gradient(135deg,rgba(0,229,255,0.2),rgba(0,229,255,0.05));color:var(--accent)}
+.stat-card.green .stat-icon{background:linear-gradient(135deg,rgba(0,255,136,0.2),rgba(0,255,136,0.05));color:var(--accent-2)}
+.stat-card.gold .stat-icon{background:linear-gradient(135deg,rgba(255,213,74,0.2),rgba(255,213,74,0.05));color:var(--gold)}
+.stat-info{display:flex;flex-direction:column;min-width:0}
+.stat-label{font-size:10px;color:var(--text-mute);text-transform:uppercase;letter-spacing:0.6px;font-weight:600}
+.stat-value{font-family:'Poppins',sans-serif;font-size:18px;font-weight:700;color:var(--text);line-height:1.1}
+
+/* ===== HERO BUTTON SECTION ===== */
+.hero{
+  display:flex;flex-direction:column;align-items:center;
+  padding:20px 0 10px;position:relative;
+}
+.button-area{
+  display:flex;flex-direction:column;align-items:center;gap:20px;
+  position:relative;
+}
+.button-container{
+  position:relative;
+  width:300px;height:300px;
+  display:flex;align-items:center;justify-content:center;
+  animation:idleFloat 4.5s ease-in-out infinite;
+  will-change:transform;
+}
+@keyframes idleFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-14px)}
+}
+.button-container.shake{animation:idleFloat 4.5s ease-in-out infinite,screenShake 0.4s ease}
+@keyframes screenShake{
+  0%,100%{transform:translate(0,0)}
+  10%{transform:translate(-3px,2px)}
+  20%{transform:translate(3px,-2px)}
+  30%{transform:translate(-2px,-3px)}
+  40%{transform:translate(2px,3px)}
+  50%{transform:translate(-3px,1px)}
+  60%{transform:translate(3px,-1px)}
+  70%{transform:translate(-1px,3px)}
+  80%{transform:translate(1px,-3px)}
+  90%{transform:translate(-2px,2px)}
+}
+.button-ring{
+  position:absolute;inset:0;border-radius:50%;
+  background:
+    radial-gradient(circle at 35% 30%,
+      #5a5a5a 0%,
+      #3a3a3a 25%,
+      #1f1f1f 55%,
+      #0a0a0a 100%);
+  box-shadow:
+    inset 0 8px 14px rgba(255,255,255,0.18),
+    inset 0 -10px 18px rgba(0,0,0,0.85),
+    0 30px 60px rgba(0,0,0,0.6),
+    0 0 100px rgba(255,45,63,0.25);
+}
+.button-ring::before{
+  content:'';position:absolute;inset:8px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#2a2a2a,#0a0a0a 80%);
+  box-shadow:inset 0 4px 10px rgba(0,0,0,0.8),inset 0 -2px 4px rgba(255,255,255,0.05);
+}
+.giant-button{
+  position:relative;z-index:2;
+  width:230px;height:230px;border-radius:50%;
+  border:none;cursor:pointer;
+  background:var(--button-color,#ff2d3f);
+  background:
+    radial-gradient(circle at 35% 28%,
+      color-mix(in srgb,var(--button-color,#ff2d3f) 60%,white) 0%,
+      var(--button-color,#ff2d3f) 28%,
+      color-mix(in srgb,var(--button-color,#ff2d3f) 60%,black) 60%,
+      color-mix(in srgb,var(--button-color,#ff2d3f) 30%,black) 100%);
+  box-shadow:
+    inset 0 -28px 50px rgba(0,0,0,0.55),
+    inset 0 18px 28px rgba(255,255,255,0.28),
+    inset 0 0 60px color-mix(in srgb,var(--button-color,#ff2d3f) 40%,white),
+    0 22px 40px rgba(0,0,0,0.5),
+    0 0 70px color-mix(in srgb,var(--button-color,#ff2d3f) 60%,transparent);
+  display:flex;align-items:center;justify-content:center;
+  transition:transform 0.12s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.12s ease;
+  font-family:'Poppins',sans-serif;
+  user-select:none;
+  -webkit-user-select:none;
+  touch-action: manipulation;
+}
+.button-highlight{
+  position:absolute;
+  top:13%;left:22%;
+  width:56%;height:32%;
+  background:radial-gradient(ellipse at center,
+    rgba(255,255,255,0.9) 0%,
+    rgba(255,255,255,0.35) 40%,
+    transparent 70%);
+  border-radius:50%;
+  filter:blur(3px);
+  pointer-events:none;
+}
+.button-text{
+  position:relative;z-index:3;
+  color:white;
+  font-weight:800;
+  font-size:clamp(15px,4vw,20px);
+  letter-spacing:2px;
+  text-shadow:0 2px 10px rgba(0,0,0,0.7),0 0 24px rgba(255,255,255,0.4);
+  pointer-events:none;
+  display:flex;align-items:center;gap:8px;
+}
+.button-dot{
+  width:14px;height:14px;border-radius:50%;
+  background:white;
+  box-shadow:0 0 12px white,0 0 20px var(--button-color,#ff2d3f);
+  animation:dotPulse 1.6s ease infinite;
+}
+@keyframes dotPulse{
+  0%,100%{transform:scale(1);opacity:1}
+  50%{transform:scale(0.7);opacity:0.6}
+}
+.giant-button:active,.giant-button.pressed{
+  transform:scale(0.9) translateY(6px);
+  box-shadow:
+    inset 0 -12px 24px rgba(0,0,0,0.6),
+    inset 0 8px 14px rgba(255,255,255,0.15),
+    inset 0 0 40px color-mix(in srgb,var(--button-color,#ff2d3f) 30%,white),
+    0 6px 16px rgba(0,0,0,0.5),
+    0 0 30px color-mix(in srgb,var(--button-color,#ff2d3f) 50%,transparent);
+}
+
+/* Strict Disabled State */
+.giant-button:disabled,
+.giant-button.cooldown{
+  cursor:not-allowed;
+  filter:saturate(0.5) brightness(0.65);
+  pointer-events:none; 
+  transform:scale(0.98);
+  animation:none;
+}
+.giant-button:disabled .button-dot,
+.giant-button.cooldown .button-dot{
+  animation:none;
+  opacity:0.5;
+}
+
+.button-shadow{
+  position:absolute;
+  bottom:-10px;left:50%;
+  transform:translateX(-50%);
+  width:220px;height:32px;
+  background:radial-gradient(ellipse,rgba(0,0,0,0.7),transparent 70%);
+  filter:blur(10px);
+  z-index:0;
+  animation:shadowPulse 4.5s ease-in-out infinite;
+}
+@keyframes shadowPulse{
+  0%,100%{transform:translateX(-50%) scale(1);opacity:0.7}
+  50%{transform:translateX(-50%) scale(0.85);opacity:0.5}
+}
+
+.ripple-layer,.particle-layer,.pulse-layer{
+  position:absolute;inset:0;
+  pointer-events:none;
+  display:flex;align-items:center;justify-content:center;
+  overflow:visible;
+}
+.ripple{
+  position:absolute;
+  width:230px;height:230px;
+  border-radius:50%;
+  border:3px solid var(--button-color,#ff2d3f);
+  animation:rippleOut 0.9s ease-out forwards;
+  pointer-events:none;
+}
+@keyframes rippleOut{
+  0%{transform:scale(0.8);opacity:0.9;border-width:5px}
+  100%{transform:scale(2.5);opacity:0;border-width:1px}
+}
+.pulse-wave{
+  position:absolute;
+  width:230px;height:230px;
+  border-radius:50%;
+  background:radial-gradient(circle,transparent 40%,color-mix(in srgb,var(--button-color,#ff2d3f) 50%,transparent) 50%,transparent 70%);
+  animation:pulseOut 1.2s ease-out forwards;
+  pointer-events:none;
+}
+@keyframes pulseOut{
+  0%{transform:scale(0.8);opacity:0.8}
+  100%{transform:scale(4);opacity:0}
+}
+.particle{
+  position:absolute;
+  width:8px;height:8px;
+  border-radius:50%;
+  pointer-events:none;
+  will-change:transform,opacity;
+}
+.particle.spark{
+  width:6px;height:6px;
+  box-shadow:0 0 8px currentColor,0 0 16px currentColor;
+}
+
+/* User Info & Countdown */
+.user-info{
+  display:flex;align-items:center;gap:8px;
+  padding:8px 16px;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:24px;
+  font-size:13px;
+  backdrop-filter:blur(10px);
+}
+.user-info .flag{font-size:18px}
+.user-info .country-name{font-weight:600}
+.user-info .separator{color:var(--text-mute)}
+.user-info .you{color:var(--accent);font-size:11px;font-weight:600}
+
+.countdown{
+  padding:10px 18px;
+  background:linear-gradient(135deg,rgba(255,45,63,0.15),rgba(255,45,63,0.05));
+  border:1px solid rgba(255,45,63,0.3);
+  border-radius:14px;
+  font-size:13px;
+  display:none;align-items:center;gap:10px;
+  text-align:center;
+  justify-content:center;
+}
+.countdown.show{display:flex}
+.countdown .material-symbols-rounded{color:var(--primary-glow);font-size:18px}
+.countdown-text{color:var(--text-dim)}
+.countdown-timer{
+  font-family:'Poppins',sans-serif;font-weight:700;
+  color:var(--primary-glow);
+  font-variant-numeric:tabular-nums;
+  letter-spacing:1px;
+}
+
+/* ===== DASHBOARD (Rankings + Feed) ===== */
+.dashboard{
+  display:grid;
+  grid-template-columns:1.4fr 1fr;
+  gap:14px;
+}
+.card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:16px;
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  position:relative;
+  overflow:hidden;
+}
+.card h2{
+  font-family:'Poppins',sans-serif;
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:0.5px;
+  text-transform:uppercase;
+  color:var(--text);
+  margin-bottom:12px;
+  display:flex;align-items:center;gap:8px;
+}
+.card h2 .material-symbols-rounded{font-size:18px;color:var(--primary-glow)}
+
+/* Rankings */
+.leaderboard{
+  display:flex;flex-direction:column;gap:6px;
+  max-height:440px;overflow-y:auto;
+  padding-right:4px;
+}
+.leaderboard::-webkit-scrollbar{width:6px}
+.leaderboard::-webkit-scrollbar-track{background:transparent}
+.leaderboard::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:3px}
+
+.rank-row{
+  display:grid;
+  grid-template-columns:42px 1fr auto;
+  align-items:center;gap:10px;
+  padding:10px 12px;
+  background:rgba(255,255,255,0.025);
+  border:1px solid var(--border);
+  border-radius:12px;
+  transition:all 0.5s cubic-bezier(0.4,0,0.2,1);
+  position:relative;
+  overflow:hidden;
+}
+.rank-row.gold{
+  background:linear-gradient(90deg,rgba(255,213,74,0.12),rgba(255,213,74,0.02));
+  border-color:rgba(255,213,74,0.3);
+}
+.rank-row.gold .rank-num{color:var(--gold);text-shadow:0 0 12px rgba(255,213,74,0.6)}
+.rank-row.silver{
+  background:linear-gradient(90deg,rgba(207,216,227,0.1),rgba(207,216,227,0.02));
+  border-color:rgba(207,216,227,0.25);
+}
+.rank-row.silver .rank-num{color:var(--silver)}
+.rank-row.bronze{
+  background:linear-gradient(90deg,rgba(224,160,107,0.1),rgba(224,160,107,0.02));
+  border-color:rgba(224,160,107,0.25);
+}
+.rank-row.bronze .rank-num{color:var(--bronze)}
+.rank-row.highlight{
+  animation:rankFlash 1.2s ease;
+}
+@keyframes rankFlash{
+  0%{background:rgba(0,229,255,0.25);border-color:var(--accent);transform:scale(1.02)}
+  100%{}
+}
+.rank-num{
+  font-family:'Poppins',sans-serif;
+  font-weight:800;font-size:16px;
+  color:var(--text-dim);
+  text-align:center;
+}
+.rank-country{display:flex;align-items:center;gap:8px;min-width:0}
+.rank-flag{font-size:20px;flex-shrink:0}
+.rank-name{
+  font-weight:600;font-size:13px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.rank-clicks{
+  font-family:'Poppins',sans-serif;
+  font-weight:700;font-size:14px;
+  color:var(--text);
+  font-variant-numeric:tabular-nums;
+}
+.rank-row.gold .rank-clicks{color:var(--gold)}
+
+/* Live Feed */
+.feed-list{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  max-height:440px;
+  overflow-y:auto;
+  padding-right:4px;
+}
+.feed-list::-webkit-scrollbar{width:6px}
+.feed-list::-webkit-scrollbar-track{background:transparent}
+.feed-list::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:3px}
+
+.feed-item{
+  display:flex;align-items:center;gap:10px;
+  padding:9px 11px;
+  background:rgba(255,255,255,0.025);
+  border:1px solid var(--border);
+  border-radius:10px;
+  font-size:12px;
+  animation:feedIn 0.5s ease;
+}
+@keyframes feedIn{
+  from{opacity:0;transform:translateX(-12px)}
+  to{opacity:1;transform:translateX(0)}
+}
+.feed-flag{font-size:16px;flex-shrink:0}
+.feed-text{flex:1;color:var(--text-dim);line-height:1.4}
+.feed-text strong{color:var(--text);font-weight:600}
+.feed-time{color:var(--text-mute);font-size:10px;flex-shrink:0;font-variant-numeric:tabular-nums}
+.feed-item.press .feed-flag{filter:saturate(1.2)}
+.feed-item.color .feed-flag{filter:hue-rotate(20deg)}
+.feed-item.rise{border-color:rgba(0,229,255,0.25)}
+.feed-item.rise .feed-text strong{color:var(--accent)}
+
+.empty-state{
+  text-align:center;padding:30px 16px;
+  color:var(--text-mute);font-size:12px;
+}
+.empty-state .material-symbols-rounded{
+  font-size:32px;display:block;margin-bottom:8px;opacity:0.4;
+}
+
+/* ===== ACHIEVEMENTS ===== */
+.achievements-section{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:16px;
+  backdrop-filter:blur(12px);
+}
+.achievements-section h2{
+  font-family:'Poppins',sans-serif;
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:0.5px;
+  text-transform:uppercase;
+  margin-bottom:12px;
+  display:flex;align-items:center;gap:8px;
+}
+.achievements-section h2 .material-symbols-rounded{font-size:18px;color:var(--gold)}
+.badge-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+}
+.badge{
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  padding:14px 8px;
+  background:rgba(255,255,255,0.02);
+  border:1px solid var(--border);
+  border-radius:12px;
+  text-align:center;
+  position:relative;
+  transition:all 0.3s;
+  opacity:0.4;
+  filter:grayscale(1);
+}
+.badge.unlocked{
+  opacity:1;
+  filter:grayscale(0);
+  background:linear-gradient(135deg,rgba(255,213,74,0.08),rgba(255,45,63,0.04));
+  border-color:rgba(255,213,74,0.25);
+}
+.badge.unlocked::before{
+  content:'check_circle';
+  font-family:'Material Symbols Rounded';
+  position:absolute;top:6px;right:6px;
+  font-size:14px;color:var(--accent-2);
+}
+.badge.just-unlocked{animation:badgeUnlock 1s ease}
+@keyframes badgeUnlock{
+  0%{transform:scale(0.8);box-shadow:0 0 0 rgba(255,213,74,0)}
+  50%{transform:scale(1.1);box-shadow:0 0 30px rgba(255,213,74,0.5)}
+  100%{transform:scale(1);box-shadow:0 0 0 rgba(255,213,74,0)}
+}
+.badge-icon{
+  width:42px;height:42px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,rgba(255,213,74,0.15),rgba(255,45,63,0.05));
+  color:var(--gold);
+}
+.badge-icon .material-symbols-rounded{font-size:22px}
+.badge-name{
+  font-size:10px;font-weight:600;
+  color:var(--text);
+  line-height:1.2;
+}
+.badge-desc{
+  font-size:9px;color:var(--text-mute);
+  line-height:1.2;
+}
+
+/* ===== STREAK INFO ===== */
+.streak-card{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;gap:18px;
+  padding:16px;
+}
+.streak-display{display:flex;align-items:center;gap:10px}
+.streak-icon{
+  width:44px;height:44px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,rgba(255,87,34,0.2),rgba(255,87,34,0.05));
+  color:#ff7043;
+  font-size:24px;
+  animation:flameFlicker 2s ease infinite;
+}
+@keyframes flameFlicker{
+  0%,100%{transform:scale(1) rotate(-2deg)}
+  50%{transform:scale(1.08) rotate(2deg)}
+}
+.streak-info-text{display:flex;flex-direction:column}
+.streak-label{font-size:10px;color:var(--text-mute);text-transform:uppercase;letter-spacing:0.6px;font-weight:600}
+.streak-value{font-family:'Poppins',sans-serif;font-size:18px;font-weight:700;color:#ff7043}
+
+.streak-progress{display:flex;flex-direction:column;gap:6px;flex:1;max-width:300px}
+.streak-dots{display:flex;gap:8px}
+.streak-dot{
+  flex:1;height:8px;border-radius:4px;
+  background:rgba(255,255,255,0.08);
+  transition:all 0.4s;
+  position:relative;overflow:hidden;
+}
+.streak-dot.active{
+  background:linear-gradient(90deg,#ff7043,#ffab40);
+  box-shadow:0 0 12px rgba(255,112,67,0.6);
+}
+.streak-dot.active::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent);
+  animation:dotShine 2s ease infinite;
+}
+@keyframes dotShine{
+  0%{transform:translateX(-100%)}
+  100%{transform:translateX(100%)}
+}
+.streak-hint{font-size:11px;color:var(--text-mute)}
+
+.color-pass-btn{
+  display:flex;align-items:center;gap:6px;
+  padding:10px 16px;
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  color:white;border:none;border-radius:24px;
+  font-family:'Poppins',sans-serif;font-weight:600;font-size:12px;
+  cursor:pointer;
+  box-shadow:0 6px 16px rgba(255,45,63,0.4);
+  transition:all 0.2s;
+  animation:passGlow 2s ease infinite;
+}
+@keyframes passGlow{
+  0%,100%{box-shadow:0 6px 16px rgba(255,45,63,0.4)}
+  50%{box-shadow:0 6px 24px rgba(255,45,63,0.7)}
+}
+.color-pass-btn:hover{transform:translateY(-2px)}
+.color-pass-btn:active{transform:translateY(0)}
+.color-pass-btn .material-symbols-rounded{font-size:18px}
+.color-pass-btn.hidden{display:none}
+
+/* ===== MODAL ===== */
+.modal-overlay{
+  position:fixed;inset:0;z-index:200;
+  background:rgba(7,5,16,0.85);
+  backdrop-filter:blur(12px);
+  display:none;align-items:center;justify-content:center;
+  padding:20px;
+  animation:fadeIn 0.3s ease;
+}
+.modal-overlay.show{display:flex}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal{
+  background:linear-gradient(135deg,#1a0e22 0%,#0f0a1c 100%);
+  border:1px solid var(--border-strong);
+  border-radius:24px;
+  padding:28px;
+  max-width:420px;width:100%;
+  box-shadow:0 40px 80px rgba(0,0,0,0.6),0 0 60px rgba(255,45,63,0.15);
+  animation:modalIn 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes modalIn{
+  from{transform:scale(0.85) translateY(20px);opacity:0}
+  to{transform:scale(1) translateY(0);opacity:1}
+}
+.modal h3{
+  font-family:'Poppins',sans-serif;
+  font-size:20px;font-weight:700;
+  margin-bottom:8px;
+  display:flex;align-items:center;gap:8px;
+}
+.modal p{color:var(--text-dim);font-size:13px;margin-bottom:18px;line-height:1.5}
+.color-presets{
+  display:grid;grid-template-columns:repeat(6,1fr);
+  gap:8px;margin-bottom:16px;
+}
+.color-preset{
+  aspect-ratio:1;border-radius:50%;border:2px solid transparent;
+  cursor:pointer;transition:all 0.2s;
+  box-shadow:0 4px 12px rgba(0,0,0,0.4),inset 0 -4px 8px rgba(0,0,0,0.3),inset 0 4px 8px rgba(255,255,255,0.3);
+}
+.color-preset:hover{transform:scale(1.1)}
+.color-preset.selected{border-color:white;transform:scale(1.1);box-shadow:0 4px 16px rgba(255,255,255,0.3),inset 0 -4px 8px rgba(0,0,0,0.3),inset 0 4px 8px rgba(255,255,255,0.3)}
+.color-picker-area{
+  display:flex;align-items:center;gap:12px;
+  padding:12px;background:var(--surface);border-radius:12px;border:1px solid var(--border);
+  margin-bottom:20px;
+}
+.color-picker-area input[type=color]{
+  width:50px;height:50px;border:none;border-radius:50%;cursor:pointer;background:none;
+}
+.color-picker-area input[type=color]::-webkit-color-swatch-wrapper{padding:0}
+.color-picker-area input[type=color]::-webkit-color-swatch{border:2px solid var(--border-strong);border-radius:50%}
+#colorHex{
+  font-family:'Poppins',sans-serif;font-weight:600;font-size:16px;
+  color:var(--text);letter-spacing:1px;
+}
+.modal-actions{display:flex;gap:10px}
+.btn-primary,.btn-secondary{
+  flex:1;padding:12px 16px;border-radius:12px;border:none;
+  font-family:'Poppins',sans-serif;font-weight:600;font-size:13px;
+  cursor:pointer;transition:all 0.2s;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  color:white;box-shadow:0 6px 16px rgba(255,45,63,0.4);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(255,45,63,0.55)}
+.btn-secondary{background:var(--surface-2);color:var(--text);border:1px solid var(--border)}
+.btn-secondary:hover{background:var(--surface)}
+
+/* ===== CELEBRATION ===== */
+.celebration{
+  position:fixed;inset:0;z-index:300;
+  display:none;align-items:center;justify-content:center;
+  background:radial-gradient(ellipse at center,rgba(255,45,63,0.25),rgba(7,5,16,0.95));
+  backdrop-filter:blur(8px);
+}
+.celebration.show{display:flex;animation:celebFadeIn 0.5s ease}
+@keyframes celebFadeIn{from{opacity:0}to{opacity:1}}
+.confetti-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.celebration-content{
+  position:relative;z-index:2;
+  text-align:center;
+  padding:30px;
+  animation:celebPop 0.8s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes celebPop{
+  0%{transform:scale(0.3);opacity:0}
+  60%{transform:scale(1.1);opacity:1}
+  100%{transform:scale(1);opacity:1}
+}
+.celebration-flag{
+  font-size:90px;
+  margin-bottom:16px;
+  display:inline-block;
+  animation:flagWave 1.5s ease infinite;
+  filter:drop-shadow(0 8px 24px rgba(0,0,0,0.6));
+}
+@keyframes flagWave{
+  0%,100%{transform:rotate(-5deg) scale(1)}
+  50%{transform:rotate(5deg) scale(1.05)}
+}
+.celebration h2{
+  font-family:'Poppins',sans-serif;
+  font-size:28px;font-weight:800;
+  background:linear-gradient(90deg,#fff,#ffb8c0);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  margin-bottom:10px;
+}
+.celebration-country{
+  font-family:'Poppins',sans-serif;
+  font-size:36px;font-weight:800;
+  color:var(--primary-glow);
+  text-shadow:0 0 30px rgba(255,77,95,0.6);
+  margin-bottom:6px;
+}
+.celebration p{font-size:16px;color:var(--text-dim)}
+
+/* ===== TOAST ===== */
+.toast-container{
+  position:fixed;top:70px;right:14px;left:14px;
+  z-index:250;
+  display:flex;flex-direction:column;align-items:center;
+  gap:8px;pointer-events:none;
+}
+.toast{
+  background:rgba(15,10,28,0.95);
+  border:1px solid var(--border-strong);
+  border-radius:14px;
+  padding:10px 16px;
+  display:flex;align-items:center;gap:10px;
+  font-size:13px;
+  backdrop-filter:blur(20px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.4);
+  animation:toastIn 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  pointer-events:auto;
+  max-width:340px;
+}
+.toast.success{border-color:rgba(0,255,136,0.3)}
+.toast.success .material-symbols-rounded{color:var(--accent-2)}
+.toast.info{border-color:rgba(0,229,255,0.3)}
+.toast.info .material-symbols-rounded{color:var(--accent)}
+.toast.warning{border-color:rgba(255,213,74,0.3)}
+.toast.warning .material-symbols-rounded{color:var(--gold)}
+.toast.error{border-color:rgba(255,45,63,0.3)}
+.toast.error .material-symbols-rounded{color:var(--primary-glow)}
+.toast .material-symbols-rounded{font-size:20px;flex-shrink:0}
+.toast.fade-out{animation:toastOut 0.3s ease forwards}
+@keyframes toastIn{
+  from{opacity:0;transform:translateY(-20px) scale(0.9)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes toastOut{
+  to{opacity:0;transform:translateY(-20px) scale(0.9)}
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:860px){
+  .dashboard{grid-template-columns:1fr}
+  .stats-bar{grid-template-columns:repeat(2,1fr)}
+  .stats-bar .stat-card:nth-child(5){grid-column:span 2}
+}
+@media (max-width:560px){
+  main{padding:74px 10px 30px;gap:14px}
+  .button-container{width:260px;height:260px}
+  .giant-button{width:200px;height:200px}
+  .button-shadow{width:190px}
+  .badge-grid{grid-template-columns:repeat(3,1fr)}
+  .streak-card{grid-template-columns:1fr;text-align:center}
+  .streak-display{justify-content:center}
+  .streak-progress{max-width:none}
+  .color-pass-btn{justify-self:center}
+  .header{padding:8px 12px}
+  .title{font-size:18px}
+  .last-visitor{font-size:11px}
+  .conn-status{display:none}
+  .stat-value{font-size:15px}
+  .stat-card{padding:10px 12px}
+  .celebration-flag{font-size:70px}
+  .celebration h2{font-size:22px}
+  .celebration-country{font-size:28px}
+}
+@media (max-width:380px){
+  .stats-bar{grid-template-columns:1fr 1fr}
+  .stats-bar .stat-card:nth-child(5){grid-column:span 2}
+  .button-container{width:230px;height:230px}
+  .giant-button{width:175px;height:175px}
+  .button-shadow{width:165px}
+}
+
+@media (max-height:500px) and (orientation:landscape){
+  .button-container{width:220px;height:220px}
+  .giant-button{width:165px;height:165px}
+  .button-shadow{width:160px}
+  .hero{padding:10px 0}
+  .button-area{gap:12px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .button-container,.glow-orb,.button-shadow,.streak-icon,.streak-dot.active::after,.button-dot,.color-pass-btn,.conn-status .dot{
+    animation:none!important
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-effects">
+  <div class="grid-pattern"></div>
+  <div class="glow-orb glow-orb-1"></div>
+  <div class="glow-orb glow-orb-2"></div>
+  <div class="glow-orb glow-orb-3"></div>
+</div>
+
+<header class="header">
+  <div class="header-left">
+    <h1 class="title">GLOBAL BUTTON WAR</h1>
+    <div class="last-visitor" id="lastVisitor">
+      <span class="material-symbols-rounded">schedule</span>
+      <span id="lastVisitorText">Connecting to network...</span>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="conn-status connecting" id="connStatus">
+      <span class="dot"></span>
+      <span id="connText">Connecting</span>
+    </div>
+    <button class="icon-btn" id="muteBtn" aria-label="Toggle sound">
+      <span class="material-symbols-rounded" id="muteIcon">volume_up</span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="stats-bar">
+    <div class="stat-card">
+      <div class="stat-icon"><span class="material-symbols-rounded">public</span></div>
+      <div class="stat-info">
+        <span class="stat-label">Total Clicks</span>
+        <span class="stat-value" id="totalClicks">0</span>
+      </div>
+    </div>
+    <div class="stat-card green">
+      <div class="stat-icon"><span class="material-symbols-rounded">group</span></div>
+      <div class="stat-info">
+        <span class="stat-label">Online Now</span>
+        <span class="stat-value" id="onlineUsers">1</span>
+      </div>
+    </div>
+    <div class="stat-card accent">
+      <div class="stat-icon"><span class="material-symbols-rounded">flag</span></div>
+      <div class="stat-info">
+        <span class="stat-label">Countries</span>
+        <span class="stat-value" id="countryCount">0</span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon"><span class="material-symbols-rounded">today</span></div>
+      <div class="stat-info">
+        <span class="stat-label">Today</span>
+        <span class="stat-value" id="todayClicks">0</span>
+      </div>
+    </div>
+    <div class="stat-card gold">
+      <div class="stat-icon"><span class="material-symbols-rounded">palette</span></div>
+      <div class="stat-info">
+        <span class="stat-label">Button Color</span>
+        <span class="stat-value" id="colorOwner">Red</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero">
+    <div class="button-area">
+      <div class="button-container" id="buttonContainer">
+        <div class="button-ring"></div>
+        <button class="giant-button" id="giantButton" aria-label="Press the global button">
+          <span class="button-highlight"></span>
+          <span class="button-text" id="buttonText">
+            <span class="button-dot"></span>
+            PRESS HERE
+          </span>
+</button>
+        <div class="button-shadow"></div>
+        <div class="ripple-layer" id="rippleLayer"></div>
+        <div class="particle-layer" id="particleLayer"></div>
+        <div class="pulse-layer" id="pulseLayer"></div>
+      </div>
+      <div class="user-info" id="userInfo">
+        <span class="flag" id="userFlag">🏳️</span>
+        <span class="country-name" id="userCountry">Initializing...</span>
+      </div>
+      <div class="countdown" id="countdown">
+        <span class="material-symbols-rounded">schedule</span>
+        <span class="countdown-text">Next press in</span>
+        <span class="countdown-timer" id="countdownTimer">24h 00m 00s</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="dashboard">
+    <div class="card rankings-card">
+      <h2><span class="material-symbols-rounded">leaderboard</span> World Rankings</h2>
+      <div class="leaderboard" id="leaderboard">
+        <div class="empty-state">
+          <span class="material-symbols-rounded">flag_8k_plus</span>
+          Loading global data...
+        </div>
+      </div>
+    </div>
+
+    <div class="card feed-card">
+      <h2><span class="material-symbols-rounded">stream</span> Live Feed</h2>
+      <div class="feed-list" id="feedList">
+        <div class="empty-state">
+          <span class="material-symbols-rounded">broadcast_on_personal</span>
+          Loading live feed...
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="streak-card card">
+    <div class="streak-display">
+      <span class="material-symbols-rounded streak-icon">local_fire_department</span>
+      <div class="streak-info-text">
+        <span class="streak-label">Your Streak</span>
+        <span class="streak-value" id="streakValue">0 days</span>
+      </div>
+    </div>
+    <div class="streak-progress">
+      <div class="streak-dots">
+        <div class="streak-dot" data-day="1"></div>
+        <div class="streak-dot" data-day="2"></div>
+        <div class="streak-dot" data-day="3"></div>
+      </div>
+      <span class="streak-hint" id="streakHint">Press 3 days in a row to unlock Color Pass</span>
+    </div>
+    <button class="color-pass-btn hidden" id="colorPassBtn">
+      <span class="material-symbols-rounded">palette</span>
+      Use Color Pass
+    </button>
+  </section>
+
+  <section class="achievements-section">
+    <h2><span class="material-symbols-rounded">military_tech</span> Achievements</h2>
+    <div class="badge-grid" id="badgeGrid"></div>
+  </section>
+</main>
+
+<div class="modal-overlay" id="colorModal">
+  <div class="modal">
+    <h3>🎨 Global Color Change Pass</h3>
+    <p>You've earned a Color Change Pass! Pick any color — the global button will change for every player worldwide instantly. This pass is consumed after use.</p>
+    <div class="color-presets" id="colorPresets">
+      <button class="color-preset selected" style="background:#ff2d3f" data-color="#ff2d3f"></button>
+      <button class="color-preset" style="background:#00e5ff" data-color="#00e5ff"></button>
+      <button class="color-preset" style="background:#00ff88" data-color="#00ff88"></button>
+      <button class="color-preset" style="background:#ff9500" data-color="#ff9500"></button>
+      <button class="color-preset" style="background:#bd10e0" data-color="#bd10e0"></button>
+      <button class="color-preset" style="background:#ffd700" data-color="#ffd700"></button>
+    </div>
+    <div class="color-picker-area">
+      <input type="color" id="colorPicker" value="#ff2d3f">
+      <span id="colorHex">#FF2D3F</span>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-secondary" id="cancelColor">Cancel</button>
+      <button class="btn-primary" id="confirmColor">Apply Worldwide</button>
+    </div>
+  </div>
+</div>
+<div class="celebration" id="celebration">
+  <canvas class="confetti-canvas" id="confettiCanvas"></canvas>
+  <div class="celebration-content">
+    <div class="celebration-flag" id="celebrationFlag">🎉</div>
+    <h2>New Country Joined!</h2>
+    <div class="celebration-country" id="celebrationCountry">Country</div>
+    <p>entered the war!</p>
+  </div>
+</div>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<script>
+/* ============================================================
+   GLOBAL BUTTON WAR — High Performance Implementation
+   ============================================================ */
+
+// ---------- Gun.js Setup ----------
+// Removed `localStorage: false` so Gun.js saves all data locally and globally!
+const gun = Gun({
+  peers: [
+    'https://peer.wallie.io/gun',
+    'https://relay.peer.ooo/gun',
+    'https://gun-manhattan.herokuapp.com/gun'
+  ]
+});
+const root = gun.get('global-button-war-v5');
+const countriesNode = root.get('countries');
+const feedNode = root.get('feed');
+const metaNode = root.get('meta');
+
+// ---------- Helpers ----------
+function countryCodeToFlag(code){
+  if(!code || code.length !== 2) return '🏳️';
+  return code.toUpperCase().replace(/./g, c => String.fromCodePoint(127397 + c.charCodeAt(0)));
+}
+function relativeTime(ts){
+  if(!ts) return 'just now';
+  const s = Math.floor((Date.now() - ts) / 1000);
+  if(s < 5) return 'just now';
+  if(s < 60) return s + ' sec ago';
+  const m = Math.floor(s/60);
+  if(m < 60) return m + ' min ago';
+  const h = Math.floor(m/60);
+  if(h < 24) return h + ' hr ago';
+  const d = Math.floor(h/24);
+  return d + ' day' + (d>1?'s':'') + ' ago';
+}
+function formatNumber(n){
+  return (n || 0).toLocaleString('en-US');
+}
+function simpleHash(str){
+  let h = 5381;
+  for(let i=0;i<str.length;i++) h = ((h<<5) + h + str.charCodeAt(i)) | 0;
+  return Math.abs(h).toString(36);
+}
+
+// ---------- Browser Fingerprint ----------
+async function generateFingerprint(){
+  const parts = [];
+  parts.push(navigator.userAgent || '');
+  parts.push(navigator.language || '');
+  parts.push((navigator.languages || []).join(','));
+  parts.push(screen.width + 'x' + screen.height + 'x' + screen.colorDepth);
+  parts.push(new Date().getTimezoneOffset());
+  parts.push(navigator.hardwareConcurrency || 0);
+  parts.push(navigator.platform || '');
+  parts.push(navigator.deviceMemory || 0);
+  try {
+    const c = document.createElement('canvas');
+    c.width = 220; c.height = 30;
+    const ctx = c.getContext('2d');
+    ctx.textBaseline = 'top';
+    ctx.font = '14px Poppins';
+    ctx.fillStyle = '#ff2d3f';
+    ctx.fillRect(2,2,100,20);
+    ctx.fillStyle = '#00e5ff';
+    ctx.fillText('Global Button War 🌍',4,4);
+    parts.push(c.toDataURL());
+  } catch(e){ parts.push('no-canvas'); }
+  return simpleHash(parts.join('|||'));
+}
+
+// ---------- Local Storage Helpers ----------
+const LS = {
+  get: (k, d) => { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch(e){ return d; } },
+  set: (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
+};
+
+// ---------- State ----------
+const state = {
+  country: null,
+  fingerprint: null,
+  muted: false,
+  lastClickTs: 0,
+  cooldownEnd: 0,
+  streak: 0,
+  lastClickDay: null,
+  colorPass: false,
+  achievements: {
+    firstClick: false,
+    streak3: false,
+    topSupporter: false,
+    colorMaster: false,
+    veteran: false
+  },
+  totalClicksByUser: 0,
+  countries: new Map(),
+  totalClicks: 0,
+  todayClicks: 0,
+  onlineUsers: 1,
+  currentColor: '#ff2d3f',
+  colorOwner: null,
+  previousRanks: new Map(),
+  feed: [],
+  countdownInterval: null,
+  lastVisitorTs: 0,
+  audioCtx: null,
+  onlineMap: new Map(),
+  pendingClick: false,
+  isSyncing: false
+};
+
+// ---------- Audio (Web Audio API synthesis) ----------
+function getAudio(){
+  if(!state.audioCtx){
+    try { state.audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
+    catch(e){ return null; }
+  }
+  return state.audioCtx;
+}
+function playSound(type){
+  if(state.muted) return;
+  const ctx = getAudio();
+  if(!ctx) return;
+  if(ctx.state === 'suspended') ctx.resume();
+  const now = ctx.currentTime;
+  
+  if(type === 'click'){
+    const osc1 = ctx.createOscillator();
+    const g1 = ctx.createGain();
+    osc1.type = 'square';
+    osc1.frequency.setValueAtTime(420, now);
+    osc1.frequency.exponentialRampToValueAtTime(80, now + 0.12);
+    g1.gain.setValueAtTime(0.35, now);
+    g1.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+    osc1.connect(g1).connect(ctx.destination);
+    osc1.start(now); osc1.stop(now + 0.2);
+    const buf = ctx.createBuffer(1, ctx.sampleRate * 0.05, ctx.sampleRate);
+    const data = buf.getChannelData(0);
+    for(let i=0;i<data.length;i++) data[i] = (Math.random()*2-1) * Math.pow(1 - i/data.length, 2.5);
+    const noise = ctx.createBufferSource();
+    noise.buffer = buf;
+    const ng = ctx.createGain();
+    ng.gain.value = 0.25;
+    const filter = ctx.createBiquadFilter();
+    filter.type = 'highpass';
+    filter.frequency.value = 2000;
+    noise.connect(filter).connect(ng).connect(ctx.destination);
+    noise.start(now);
+  } else if(type === 'rise'){
+    [523, 659, 784, 1047].forEach((f, i) => {
+      const o = ctx.createOscillator();
+      const g = ctx.createGain();
+      o.type = 'triangle';
+      o.frequency.value = f;
+      g.gain.setValueAtTime(0, now + i*0.08);
+      g.gain.linearRampToValueAtTime(0.2, now + i*0.08 + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.001, now + i*0.08 + 0.25);
+      o.connect(g).connect(ctx.destination);
+      o.start(now + i*0.08); o.stop(now + i*0.08 + 0.3);
+    });
+  } else if(type === 'country'){
+    [523, 659, 784, 1047, 1319].forEach((f, i) => {
+      const o = ctx.createOscillator();
+      const g = ctx.createGain();
+      o.type = 'sine';
+      o.frequency.value = f;
+      g.gain.setValueAtTime(0, now + i*0.1);
+      g.gain.linearRampToValueAtTime(0.25, now + i*0.1 + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.001, now + i*0.1 + 0.6);
+      o.connect(g).connect(ctx.destination);
+      o.start(now + i*0.1); o.stop(now + i*0.1 + 0.7);
+    });
+  } else if(type === 'celebration'){
+    [392, 523, 659, 784, 988, 1175].forEach((f, i) => {
+      const o = ctx.createOscillator();
+      const g = ctx.createGain();
+      o.type = 'sawtooth';
+      o.frequency.value = f;
+      g.gain.setValueAtTime(0, now + i*0.06);
+      g.gain.linearRampToValueAtTime(0.15, now + i*0.06 + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.001, now + i*0.06 + 0.5);
+      const filter = ctx.createBiquadFilter();
+      filter.type = 'lowpass';
+      filter.frequency.value = 3000;
+      o.connect(filter).connect(g).connect(ctx.destination);
+      o.start(now + i*0.06); o.stop(now + i*0.06 + 0.6);
+    });
+  } else if(type === 'achievement'){
+    [659, 880, 1175].forEach((f, i) => {
+      const o = ctx.createOscillator();
+      const g = ctx.createGain();
+      o.type = 'triangle';
+      o.frequency.value = f;
+      g.gain.setValueAtTime(0, now + i*0.1);
+      g.gain.linearRampToValueAtTime(0.2, now + i*0.1 + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.001, now + i*0.1 + 0.4);
+      o.connect(g).connect(ctx.destination);
+      o.start(now + i*0.1); o.stop(now + i*0.1 + 0.5);
+    });
+  } else if(type === 'error'){
+    const o = ctx.createOscillator();
+    const g = ctx.createGain();
+    o.type = 'square';
+    o.frequency.setValueAtTime(220, now);
+    o.frequency.exponentialRampToValueAtTime(110, now + 0.2);
+    g.gain.setValueAtTime(0.15, now);
+    g.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+    o.connect(g).connect(ctx.destination);
+    o.start(now); o.stop(now + 0.3);
+  }
+}
+
+// ---------- Toast ----------
+function toast(msg, type = 'info', icon = 'info'){
+  const container = document.getElementById('toastContainer');
+  const t = document.createElement('div');
+  t.className = `toast ${type}`;
+  t.innerHTML = `<span class="material-symbols-rounded">${icon}</span><span>${msg}</span>`;
+  container.appendChild(t);
+  setTimeout(() => {
+    t.classList.add('fade-out');
+    setTimeout(() => t.remove(), 300);
+  }, 3500);
+}
+
+// ---------- Country Detection ----------
+async function detectCountry(){
+  try {
+    const r = await fetch('https://ipwho.is/');
+    if(r.ok){
+      const d = await r.json();
+      if(d && !d.error && d.country_code){
+        return { code: d.country_code, name: d.country, ip: d.ip || '' };
+      }
+    }
+  } catch(e){}
+  try {
+    const r = await fetch('https://ipapi.co/json/');
+    if(r.ok){
+      const d = await r.json();
+      if(d && d.country_code){
+        return { code: d.country_code, name: d.country_name, ip: d.ip || '' };
+      }
+    }
+  } catch(e){}
+  return null;
+}
+// ---------- 24h Check ----------
+function canPress(){
+  const lsTs = LS.get('lastClickTs', 0);
+  const elapsed = Date.now() - lsTs;
+  const COOLDOWN = 24 * 60 * 60 * 1000;
+  if(elapsed < COOLDOWN){
+    return { can: false, cooldownEnd: lsTs + COOLDOWN };
+  }
+  return { can: true, cooldownEnd: 0 };
+}
+
+function recordPress(){
+  const ts = Date.now();
+  const token = simpleHash(ts + '' + Math.random() + state.fingerprint);
+  LS.set('lastClickTs', ts);
+  LS.set('pressToken', token);
+  state.lastClickTs = ts;
+  state.cooldownEnd = ts + 24*60*60*1000;
+}
+
+// ---------- Streak Logic ----------
+function getDayStr(ts){
+  const d = new Date(ts || Date.now());
+  return d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate();
+}
+function updateStreak(){
+  const today = getDayStr();
+  const lastDay = state.lastClickDay;
+  if(lastDay === today) return;
+  if(lastDay){
+    const lastDate = new Date(lastDay);
+    const todayDate = new Date(today);
+    const diffDays = Math.round((todayDate - lastDate) / (1000*60*60*24));
+    if(diffDays === 1){
+      state.streak += 1;
+    } else {
+      state.streak = 1;
+    }
+  } else {
+    state.streak = 1;
+  }
+  state.lastClickDay = today;
+  LS.set('streak', state.streak);
+  LS.set('lastClickDay', state.lastClickDay);
+  if(state.streak >= 3 && !state.achievements.streak3){
+    unlockAchievement('streak3');
+  }
+  if(state.streak >= 3 && !state.colorPass){
+    state.colorPass = true;
+    LS.set('colorPass', true);
+    toast('🎨 Color Change Pass unlocked!', 'success', 'palette');
+    playSound('achievement');
+  }
+}
+
+// ---------- Achievements ----------
+const ACHIEVEMENTS = [
+  { id: 'firstClick', name: 'First Click', desc: 'Press the button for the first time', icon: 'touch_app' },
+  { id: 'streak3', name: 'On Fire', desc: '3-day streak', icon: 'local_fire_department' },
+  { id: 'topSupporter', name: 'Top Supporter', desc: 'Your country reaches #1', icon: 'emoji_events' },
+  { id: 'colorMaster', name: 'Color Master', desc: 'Change the global button color', icon: 'palette' },
+  { id: 'veteran', name: 'Veteran', desc: 'Press 7 different days', icon: 'military_tech' }
+];
+function renderAchievements(){
+  const grid = document.getElementById('badgeGrid');
+  grid.innerHTML = ACHIEVEMENTS.map(a => `
+    <div class="badge ${state.achievements[a.id] ? 'unlocked' : ''}" data-id="${a.id}">
+      <div class="badge-icon"><span class="material-symbols-rounded">${a.icon}</span></div>
+      <div class="badge-name">${a.name}</div>
+      <div class="badge-desc">${a.desc}</div>
+    </div>
+  `).join('');
+}
+function unlockAchievement(id){
+  if(state.achievements[id]) return;
+  state.achievements[id] = true;
+  LS.set('achievements', state.achievements);
+  renderAchievements();
+  const badge = document.querySelector(`.badge[data-id="${id}"]`);
+  if(badge){
+    badge.classList.add('just-unlocked');
+    setTimeout(() => badge.classList.remove('just-unlocked'), 1000);
+  }
+  const a = ACHIEVEMENTS.find(x => x.id === id);
+  toast(`🏆 Achievement unlocked: ${a.name}`, 'success', 'military_tech');
+  playSound('achievement');
+}
+// ---------- Count-up Animation ----------
+function countUp(el, target, duration = 800){
+  const start = parseInt((el.textContent || '0').replace(/[^\d]/g,'')) || 0;
+  if(start === target){ el.textContent = formatNumber(target); return; }
+  const startTime = performance.now();
+  function update(now){
+    const p = Math.min((now - startTime) / duration, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    const cur = Math.round(start + (target - start) * eased);
+    el.textContent = formatNumber(cur);
+    if(p < 1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+
+// ---------- DEBOUNCED RENDERING ----------
+let lbRenderTimeout, feedRenderTimeout, statsRenderTimeout;
+function scheduleLeaderboardRender() {
+  clearTimeout(lbRenderTimeout);
+  lbRenderTimeout = setTimeout(renderLeaderboard, 300);
+}
+function scheduleFeedRender() {
+  clearTimeout(feedRenderTimeout);
+  feedRenderTimeout = setTimeout(renderFeed, 300);
+}
+function scheduleStatsRender() {
+  clearTimeout(statsRenderTimeout);
+  statsRenderTimeout = setTimeout(updateStatsDisplay, 300);
+}
+
+function renderLeaderboard(){
+  const list = document.getElementById('leaderboard');
+  const countries = Array.from(state.countries.values()).sort((a,b) => b.clicks - a.clicks);
+  if(countries.length === 0){
+    list.innerHTML = `<div class="empty-state">
+      <span class="material-symbols-rounded">flag_8k_plus</span>
+      Be the first to press the button!
+    </div>`;
+    return;
+  }
+  const newRanks = new Map();
+  countries.forEach((c, i) => newRanks.set(c.code, i+1));
+  const html = countries.map((c, i) => {
+    const rank = i + 1;
+    const rankClass = rank === 1 ? 'gold' : rank === 2 ? 'silver' : rank === 3 ? 'bronze' : '';
+    const prevRank = state.previousRanks.get(c.code);
+    let highlight = '';
+    if(prevRank && prevRank > rank){
+      highlight = 'highlight';
+      if(rank <= 3 || prevRank - rank >= 2){
+        setTimeout(() => playSound('rise'), 100);
+      }
+    }
+    const medal = rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : '';
+    return `<div class="rank-row ${rankClass} ${highlight}" data-code="${c.code}">
+      <span class="rank-num">${medal || '#' + rank}</span>
+      <div class="rank-country">
+        <span class="rank-flag">${c.flag}</span>
+        <span class="rank-name">${c.name}</span>
+      </div>
+      <span class="rank-clicks" data-count="${c.clicks}">${formatNumber(c.clicks)}</span>
+    </div>`;
+  }).join('');
+  list.innerHTML = html;
+  
+  if(state.country && countries[0] && countries[0].code === state.country.code){
+    if(!state.achievements.topSupporter){
+      unlockAchievement('topSupporter');
+    }
+  }
+  state.previousRanks = newRanks;
+}
+
+function addFeedItem(item){
+  if(!item || !item.ts) return;
+  if(state.feed.find(f => f.key === item.key)) return;
+  state.feed.push(item);
+  state.feed.sort((a,b) => b.ts - a.ts);
+  if(state.feed.length > 30) state.feed.length = 30; 
+  scheduleFeedRender();
+}
+function renderFeed() {
+  const list = document.getElementById('feedList');
+  if(state.feed.length === 0){
+    list.innerHTML = `<div class="empty-state">
+      <span class="material-symbols-rounded">broadcast_on_personal</span>
+      Activity will appear here...
+    </div>`;
+    return;
+  }
+  const items = state.feed.slice(0, 20);
+  list.innerHTML = items.map(item => `
+    <div class="feed-item ${item.type}" data-ts="${item.ts}">
+      <span class="feed-flag">${item.flag || '🌍'}</span>
+      <span class="feed-text">${item.text}</span>
+      <span class="feed-time">${relativeTime(item.ts)}</span>
+    </div>
+  `).join('');
+}
+
+function pushFeed(type, text, flag, extra){
+  const ts = Date.now();
+  const key = String(ts) + '-' + Math.random().toString(36).slice(2,7);
+  const item = { key, type, text, flag, ts, ...extra };
+  feedNode.get(key).put(item);
+  addFeedItem(item);
+}
+
+function updateStatsDisplay() {
+  // Total clicks is calculated dynamically by summing all countries to prevent race conditions
+  let total = 0;
+  state.countries.forEach(c => total += (c.clicks || 0));
+  state.totalClicks = total;
+  
+  document.getElementById('totalClicks').textContent = formatNumber(state.totalClicks);
+  document.getElementById('todayClicks').textContent = formatNumber(state.todayClicks);
+  document.getElementById('countryCount').textContent = state.countries.size;
+  document.getElementById('onlineUsers').textContent = state.onlineUsers;
+}
+
+// ---------- Last Visitor ----------
+function updateLastVisitor(data){
+  if(!data || !data.ts) return;
+  if(data.ts <= state.lastVisitorTs) return;
+  state.lastVisitorTs = data.ts;
+  const el = document.getElementById('lastVisitor');
+  const txt = document.getElementById('lastVisitorText');
+  txt.innerHTML = `<span class="last-visitor-flag">${data.flag}</span> <strong style="color:var(--text)">${data.country}</strong> pressed button ${relativeTime(data.ts)}`;
+  el.classList.remove('fade-in');
+  void el.offsetWidth;
+  el.classList.add('fade-in');
+}
+
+// ---------- Button Effects ----------
+function spawnRipple(){
+  const layer = document.getElementById('rippleLayer');
+  const ripple = document.createElement('div');
+  ripple.className = 'ripple';
+  layer.appendChild(ripple);
+  setTimeout(() => ripple.remove(), 900);
+}
+function spawnPulse(){
+  const layer = document.getElementById('pulseLayer');
+  const pulse = document.createElement('div');
+  pulse.className = 'pulse-wave';
+  layer.appendChild(pulse);
+  setTimeout(() => pulse.remove(), 1200);
+}
+function spawnParticles(color){
+  const layer = document.getElementById('particleLayer');
+  const count = 18;
+  for(let i = 0; i < count; i++){
+    const p = document.createElement('div');
+    p.className = 'particle spark';
+    const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.3;
+    const dist = 100 + Math.random() * 80;
+    const dx = Math.cos(angle) * dist;
+    const dy = Math.sin(angle) * dist;
+    const size = 4 + Math.random() * 6;
+    p.style.width = size + 'px';
+    p.style.height = size + 'px';
+    p.style.background = color;
+    p.style.color = color;
+    p.style.left = '50%';
+    p.style.top = '50%';
+    p.style.transform = 'translate(-50%, -50%)';
+    p.style.transition = 'transform 0.9s cubic-bezier(0.2, 0.6, 0.3, 1), opacity 0.9s ease-out';
+    layer.appendChild(p);
+    requestAnimationFrame(() => {
+      p.style.transform = `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px)) scale(0.2)`;
+      p.style.opacity = '0';
+    });
+    setTimeout(() => p.remove(), 950);
+  }
+}
+function screenShake(){
+  const c = document.getElementById('buttonContainer');
+  c.classList.remove('shake');
+  void c.offsetWidth;
+  c.classList.add('shake');
+  setTimeout(() => c.classList.remove('shake'), 400);
+}
+function haptic(){
+  if(navigator.vibrate) navigator.vibrate(30);
+}
+
+// ---------- Press Handler ----------
+function handlePress(){
+  const btn = document.getElementById('giantButton');
+  if (btn.disabled) return;
+
+  const check = canPress();
+  if(!check.can){
+    const remaining = check.cooldownEnd - Date.now();
+    const h = Math.floor(remaining / 3600000);
+    const m = Math.floor((remaining % 3600000) / 60000);
+    const s = Math.floor((remaining % 60000) / 1000);
+    toast(`You can press again in: ${h}h ${m}m ${s}s`, 'warning', 'schedule');
+    playSound('error');
+    return;
+  }
+
+  btn.classList.add('pressed');
+  setTimeout(() => btn.classList.remove('pressed'), 200);
+  spawnRipple();
+  spawnPulse();
+  spawnParticles(state.currentColor);
+  screenShake();
+  haptic();
+  playSound('click');
+  
+  if(!state.country && !state.isSyncing){
+    state.pendingClick = true;
+    state.isSyncing = true;
+    document.getElementById('buttonText').innerHTML = 'SYNCING...';
+    toast('Detecting your location...', 'info', 'sync');
+    return;
+  }
+  
+  if(state.isSyncing) return;
+
+  performPress();
+}
+
+function performPress() {
+  recordPress();
+  updateCountdown(); 
+  
+  updateStreak();
+  state.totalClicksByUser++;
+  LS.set('totalClicksByUser', state.totalClicksByUser);
+  
+  const pressDays = LS.get('pressDays', []);
+  const today = getDayStr();
+  if(!pressDays.includes(today)){
+    pressDays.push(today);
+    LS.set('pressDays', pressDays);
+  }
+  if(pressDays.length >= 7) unlockAchievement('veteran');
+  if(!state.achievements.firstClick) unlockAchievement('firstClick');
+  
+  updateStreakUI();
+  
+  const countryData = state.countries.get(state.country.code);
+  const newClicks = (countryData ? countryData.clicks : 0) + 1;
+  const isFirstClick = !countryData || countryData.clicks === 0;
+  
+  countriesNode.get(state.country.code).put({
+    code: state.country.code,
+    name: state.country.name,
+    flag: countryCodeToFlag(state.country.code),
+    clicks: newClicks,
+    firstClick: countryData ? countryData.firstClick : Date.now(),
+    lastClick: Date.now()
+  });
+  
+  const visitorData = {
+    country: state.country.name,
+    flag: countryCodeToFlag(state.country.code),
+    ts: Date.now(),
+    code: state.country.code
+  };
+  root.get('lastVisitor').put(visitorData);
+  updateLastVisitor(visitorData);
+  
+  // Today's clicks sync (might have race conditions globally, but acceptable for daily stat)
+  const todayKey = getDayStr();
+  state.todayClicks++;
+  metaNode.get('daily').get(todayKey).put(state.todayClicks);
+  
+  pushFeed('press', `<strong>${state.country.name}</strong> pressed the button`, countryCodeToFlag(state.country.code));
+  
+  if(isFirstClick) {
+    setTimeout(() => triggerCelebration(state.country), 600);
+  }
+  
+  scheduleStatsRender();
+  scheduleLeaderboardRender();
+}
+
+// ---------- Countdown UI ----------
+function updateCountdown(){
+  const cd = document.getElementById('countdown');
+  const timer = document.getElementById('countdownTimer');
+  const btn = document.getElementById('giantButton');
+  const txt = document.getElementById('buttonText');
+  
+  if(state.cooldownEnd && state.cooldownEnd > Date.now()){
+    cd.classList.add('show');
+    btn.classList.add('cooldown');
+    btn.disabled = true; 
+    txt.innerHTML = '✓ DONE';
+    
+    if(state.countdownInterval) clearInterval(state.countdownInterval);
+    state.countdownInterval = setInterval(() => {
+      const remaining = state.cooldownEnd - Date.now();
+      if(remaining <= 0){
+        clearInterval(state.countdownInterval);
+        cd.classList.remove('show');
+        btn.classList.remove('cooldown');
+        btn.disabled = false; 
+        txt.innerHTML = '<span class="button-dot"></span>PRESS HERE';
+        return;
+      }
+      const h = Math.floor(remaining / 3600000);
+      const m = Math.floor((remaining % 3600000) / 60000);
+      const s = Math.floor((remaining % 60000) / 1000);
+      timer.textContent = `${h}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
+    }, 1000);
+  } else {
+    cd.classList.remove('show');
+    btn.classList.remove('cooldown');
+    btn.disabled = false;
+    txt.innerHTML = '<span class="button-dot"></span>PRESS HERE';
+  }
+}
+function updateStreakUI(){
+  document.getElementById('streakValue').textContent = state.streak + ' day' + (state.streak !== 1 ? 's' : '');
+  document.querySelectorAll('.streak-dot').forEach((dot, i) => {
+    if(i < state.streak) dot.classList.add('active');
+    else dot.classList.remove('active');
+  });
+  const passBtn = document.getElementById('colorPassBtn');
+  const hint = document.getElementById('streakHint');
+  if(state.colorPass){
+    passBtn.classList.remove('hidden');
+    hint.textContent = 'Color Pass ready! Tap to use.';
+  } else {
+    passBtn.classList.add('hidden');
+    const remaining = 3 - state.streak;
+    if(remaining > 0) hint.textContent = `${remaining} more day${remaining > 1 ? 's' : ''} to unlock Color Pass`;
+    else hint.textContent = 'Press 3 days in a row to unlock Color Pass';
+  }
+}
+
+// ---------- Celebration ----------
+function triggerCelebration(country){
+  const cel = document.getElementById('celebration');
+  document.getElementById('celebrationFlag').textContent = countryCodeToFlag(country.code);
+  document.getElementById('celebrationCountry').textContent = country.name;
+  cel.classList.add('show');
+  playSound('celebration');
+  startConfetti();
+  setTimeout(() => {
+    cel.classList.remove('show');
+    stopConfetti();
+  }, 4500);
+  pushFeed('rise', `<strong>${country.name}</strong> joined the war!`, countryCodeToFlag(country.code));
+}
+
+// ---------- Confetti ----------
+let confettiAnim = null;
+let confettiParticles = [];
+function startConfetti(){
+  const canvas = document.getElementById('confettiCanvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  confettiParticles = [];
+  const colors = ['#ff2d3f','#00e5ff','#00ff88','#ffd54a','#ff9500','#bd10e0','#ffffff'];
+  for(let i = 0; i < 150; i++){
+    confettiParticles.push({
+      x: canvas.width / 2 + (Math.random() - 0.5) * 200,
+      y: canvas.height / 2,
+      vx: (Math.random() - 0.5) * 16,
+      vy: -Math.random() * 18 - 6,
+      g: 0.4,
+      size: 4 + Math.random() * 8,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      rot: Math.random() * Math.PI * 2,
+      vr: (Math.random() - 0.5) * 0.3,
+      shape: Math.random() > 0.5 ? 'rect' : 'circle',
+      life: 1
+    });
+  }
+  function animate(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    confettiParticles.forEach(p => {
+      p.vy += p.g;
+      p.x += p.vx;
+      p.y += p.vy;
+      p.rot += p.vr;
+      p.life -= 0.005;
+      if(p.y > canvas.height + 50) p.life = 0;
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.globalAlpha = Math.max(0, p.life);
+      ctx.fillStyle = p.color;
+      if(p.shape === 'rect') ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size * 0.6);
+      else {
+        ctx.beginPath();
+        ctx.arc(0, 0, p.size/2, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.restore();
+    });
+    confettiParticles = confettiParticles.filter(p => p.life > 0);
+    if(confettiParticles.length > 0) confettiAnim = requestAnimationFrame(animate);
+  }
+  animate();
+}
+function stopConfetti(){
+  if(confettiAnim) cancelAnimationFrame(confettiAnim);
+  const canvas = document.getElementById('confettiCanvas');
+  const ctx = canvas.getContext('2d');
+  setTimeout(() => ctx.clearRect(0, 0, canvas.width, canvas.height), 200);
+}
+
+// ---------- Color Modal ----------
+function openColorModal(){ document.getElementById('colorModal').classList.add('show'); }
+function closeColorModal(){ document.getElementById('colorModal').classList.remove('show'); }
+function applyColorWorldwide(color){
+  state.currentColor = color;
+  state.colorOwner = state.country.name;
+  state.colorPass = false;
+  LS.set('colorPass', false);
+  document.documentElement.style.setProperty('--button-color', color);
+  document.getElementById('giantButton').style.setProperty('--button-color', color);
+  metaNode.get('buttonColor').put(color);
+  metaNode.get('colorOwner').put({
+    country: state.country.name,
+    flag: countryCodeToFlag(state.country.code),
+    ts: Date.now(),
+    color: color
+  });
+  document.getElementById('colorOwner').textContent = state.country.name;
+  unlockAchievement('colorMaster');
+  pushFeed('color', `<strong>${state.country.name}</strong> changed button color`, countryCodeToFlag(state.country.code), { color });
+  toast(`🎨 Global button color changed!`, 'success', 'palette');
+  playSound('achievement');
+  updateStreakUI();
+  closeColorModal();
+}
+
+// ---------- Gun.js Subscriptions ----------
+function subscribeGun(){
+  countriesNode.map().on((data, key) => {
+    if(!data || !data.code) return;
+    state.countries.set(key, data);
+    scheduleLeaderboardRender();
+    scheduleStatsRender();
+  });
+  
+  feedNode.map().on((data, key) => {
+    if(!data || !data.ts) return;
+    addFeedItem({ ...data, key });
+  });
+  
+  root.get('lastVisitor').on((data) => {
+    if(data && data.ts) updateLastVisitor(data);
+  });
+  
+  const todayKey = getDayStr();
+  metaNode.get('daily').get(todayKey).on((val) => {
+    if(typeof val === 'number'){
+      state.todayClicks = val;
+      scheduleStatsRender();
+    }
+  });
+  
+  metaNode.get('buttonColor').on((val) => {
+    if(val && typeof val === 'string'){
+      state.currentColor = val;
+      document.documentElement.style.setProperty('--button-color', val);
+      document.getElementById('giantButton').style.setProperty('--button-color', val);
+    }
+  });
+  
+  metaNode.get('colorOwner').on((data) => {
+    if(data && data.country){
+      state.colorOwner = data.country;
+      document.getElementById('colorOwner').textContent = data.country;
+    }
+  });
+  
+  const myId = simpleHash(state.fingerprint + Date.now() + Math.random());
+  const heartbeatNode = root.get('online').get(myId);
+  function heartbeat(){
+    heartbeatNode.put({ ts: Date.now(), country: state.country ? state.country.code : '??' });
+  }
+  heartbeat();
+  setInterval(heartbeat, 5000);
+  
+  root.get('online').map().on((data, key) => {
+    if(!data || !data.ts) return;
+    const now = Date.now();
+    if(now - data.ts < 15000) {
+      state.onlineMap.set(key, data.ts);
+    } else {
+      state.onlineMap.delete(key);
+    }
+  });
+setInterval(() => {
+    const now = Date.now();
+    const keysToDelete = [];
+    for(let [k, v] of state.onlineMap) {
+      if(now - v > 15000) keysToDelete.push(k);
+    }
+    keysToDelete.forEach(k => state.onlineMap.delete(k));
+    state.onlineUsers = Math.max(1, state.onlineMap.size);
+    scheduleStatsRender();
+  }, 3000);
+  
+  setTimeout(() => {
+    document.getElementById('connStatus').classList.remove('connecting');
+    document.getElementById('connText').textContent = 'Live';
+  }, 3000);
+}
+
+// ---------- Init ----------
+async function init(){
+  state.fingerprint = LS.get('fingerprint', null) || await generateFingerprint();
+  LS.set('fingerprint', state.fingerprint);
+  
+  state.streak = LS.get('streak', 0);
+  state.lastClickDay = LS.get('lastClickDay', null);
+  state.colorPass = LS.get('colorPass', false);
+  state.achievements = LS.get('achievements', state.achievements);
+  state.totalClicksByUser = LS.get('totalClicksByUser', 0);
+  state.lastClickTs = LS.get('lastClickTs', 0);
+  state.cooldownEnd = state.lastClickTs + 24*60*60*1000;
+  
+  renderAchievements();
+  updateStreakUI();
+  updateCountdown(); 
+  
+  subscribeGun();
+  
+  document.getElementById('userCountry').textContent = 'Detecting location...';
+  detectCountry().then(country => {
+    if(country){
+      state.country = country;
+      document.getElementById('userFlag').textContent = countryCodeToFlag(country.code);
+      document.getElementById('userCountry').innerHTML = `${country.name} <span class="separator">•</span> <span class="you">YOU</span>`;
+      toast(`Welcome from ${country.name}! 🌍`, 'info', 'public');
+    } else {
+      state.country = { code: 'XX', name: 'Global User', ip: '' };
+      document.getElementById('userFlag').textContent = '🏳️';
+      document.getElementById('userCountry').innerHTML = `Global User <span class="separator">•</span> <span class="you">YOU</span>`;
+      toast('Location detection failed. Using Global profile.', 'warning', 'public');
+    }
+    
+    state.isSyncing = false;
+    
+    if(!document.getElementById('giantButton').disabled) {
+      document.getElementById('buttonText').innerHTML = '<span class="button-dot"></span>PRESS HERE';
+    }
+    
+    if(state.pendingClick){
+      state.pendingClick = false;
+      performPress();
+    }
+  });
+  
+  document.getElementById('giantButton').addEventListener('click', handlePress);
+  
+  document.getElementById('muteBtn').addEventListener('click', () => {
+    state.muted = !state.muted;
+    document.getElementById('muteIcon').textContent = state.muted ? 'volume_off' : 'volume_up';
+    LS.set('muted', state.muted);
+    if(!state.muted) playSound('click');
+  });
+  
+  state.muted = LS.get('muted', false);
+  document.getElementById('muteIcon').textContent = state.muted ? 'volume_off' : 'volume_up';
+  
+  document.getElementById('colorPassBtn').addEventListener('click', openColorModal);
+  document.getElementById('cancelColor').addEventListener('click', closeColorModal);
+  document.getElementById('colorModal').addEventListener('click', (e) => {
+    if(e.target.id === 'colorModal') closeColorModal();
+  });
+  
+  document.querySelectorAll('.color-preset').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.color-preset').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      const color = btn.dataset.color;
+      document.getElementById('colorPicker').value = color;
+      document.getElementById('colorHex').textContent = color.toUpperCase();
+    });
+  });
+  document.getElementById('colorPicker').addEventListener('input', (e) => {
+    document.querySelectorAll('.color-preset').forEach(b => b.classList.remove('selected'));
+    document.getElementById('colorHex').textContent = e.target.value.toUpperCase();
+  });
+  
+  document.getElementById('confirmColor').addEventListener('click', () => {
+    const color = document.getElementById('colorPicker').value;
+    applyColorWorldwide(color);
+  });
+  
+  setInterval(() => {
+    if(state.feed.length > 0) renderFeed();
+  }, 10000);
+  
+  window.addEventListener('resize', () => {
+    const canvas = document.getElementById('confettiCanvas');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+  
+  document.getElementById('giantButton').addEventListener('contextmenu', e => e.preventDefault());
+  
+  const resumeAudio = () => {
+    const ctx = getAudio();
+    if(ctx && ctx.state === 'suspended') ctx.resume();
+  };
+  document.addEventListener('click', resumeAudio, { once: true });
+  document.addEventListener('touchstart', resumeAudio, { once: true });
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
