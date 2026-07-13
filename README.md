@@ -6,7 +6,7 @@ Players from around the world can press the giant button once every 24 hours to 
 
 ## 🚀 Play Now
 
-🔴 Press the global button and represent your country in the ultimate international click war.
+[`🔴 PRESS`](https://rakeshid03.github.io/globalbuttonwar/) the global button and represent your country in the ultimate international click war.
 
 ## ✨ Features
 
